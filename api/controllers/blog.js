@@ -55,7 +55,7 @@ exports.blog_patch_one = (req, res) => {
         updatedBlog[p] = req.body[p];
     }
     console.log(updatedBlog)
-    Product.update({ _id: id }, { $set: updatedBlog })
+    Blogs.update({ _id: id }, { $set: updatedBlog })
         .exec()
         .then(result => {
             console.log(result)
@@ -69,7 +69,7 @@ exports.blog_patch_one = (req, res) => {
 }
 exports.blog_delete_one = (req, res) => {
     const id = req.params.blogId;
-    Product.remove({ _id: id })
+    Blogs.remove({ _id: id })
         .exec()
         .then(reult => {
             res.status(200).json({
